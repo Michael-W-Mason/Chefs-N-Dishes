@@ -1,0 +1,32 @@
+@model List<Dish>
+<div class="d-flex flex-column gap-3 mt-3">
+    <div class="d-flex flex-row align-items-center justify-content-center">
+        <h1 class="mx-auto"><span><a href="/">Chefs</a></span> | Dishes</h1>
+        <a href="/dishes/new">Add a Dish</a>
+    </div>
+    <div>
+        <h1>Yum take a look at our tasty dishes!</h1>
+        <hr>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Chef</th>
+                <th>Tastiness</th>
+                <th>Calories</th>
+            </tr>
+            @{
+                foreach (Dish dish in @Model)
+                {
+                    <tr>
+                        <td>@dish.Name</td>
+                        <td>@dish.Chef.FirstName @dish.Chef.LastName</td>
+                        <td>@dish.Tastiness</td>
+                        <td>@dish.Calories</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>
